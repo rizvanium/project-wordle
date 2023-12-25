@@ -1,15 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { sample } from '../../utils';
 import { WORDS } from '../../data';
 
-// Pick a random word on every pageload.
+import GuessInput from '../GuessInput'
+
 const answer = sample(WORDS);
 // To make debugging easier, we'll log the solution in the console.
 console.info({ answer });
 
 function Game() {
-  return <>Put a game here!</>;
+  const [word, setWord] = useState('')
+  console.log('current word:', word);
+  
+  const handleInput = (text) => {
+    setWord(text)
+  }
+
+  return (
+    <><GuessInput handleInput={handleInput} /></>
+  );
 }
 
 export default Game;
