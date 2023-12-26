@@ -53,3 +53,14 @@ export function checkGuess(guess, answer) {
 
   return result;
 }
+
+export function checkWinCondition(guess) {
+  console.log(guess);
+  for (let { status } of guess) {
+    if (status !== 'correct') {
+      return false
+    }
+  }
+
+  return true;
+}
